@@ -2,7 +2,9 @@
     padding: 50px 0px;
     background: #fde4e4;
     padding-bottom: 30px;
-
+    margin: 0px;
+    box-sizing: border-box;
+    
 }
 
 .footer__logo img {
@@ -49,6 +51,7 @@
 }
 
 .newsletter {
+
     padding: 5px;
     background: transparent;
     border: 1px solid #212245;
@@ -71,6 +74,7 @@
 }
 
 .newsletter input {
+
     background: transparent;
     border: none;
     outline: none;
@@ -95,4 +99,17 @@
 .copyright__text {
     font-size: 0.9rem;
     color: #df2020;
+}
+
+@media only screen and (max-width:999px) {
+    .newsletter {
+        display: flex;
+        justify-content: space-between;
+        overflow: hidden;
+    }
+
+    .newsletter input {
+        width: 50%;
+        font-size: 0.9rem;
+    }
 }

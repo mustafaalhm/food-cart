@@ -46,7 +46,7 @@ const Footer = () => {
             </ListGroupItem>
           </ListGroup>
         </Col>
-        <Col lg='3' md='4' sm='6'>
+        <Col lg='3' md='4' sm='6' xs='6'>
           <h5 className="fotter_title">NewsLetter</h5>
           <p>Subscribe our NewsLetter</p>
           <div className="newsletter">

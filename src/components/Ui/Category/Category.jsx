@@ -32,12 +32,12 @@ const Category = () => {
         <Row>
             {
                 categoryData.map((item,index)=>(
-                    <Col lg='3' md='4'>
+                    <Col lg='3' md='4' sm='6' xs='6'  key={index} className='mb-3 '>
                         <div className="category__item d-flex align-items-center gap-3">
-                            <div className="category__img">
+                            <div className="category__img ">
                                 <img src={item.imgUrl} alt="category__item" />
                             </div>
-                            <h4>{item.display}</h4>
+                            <h6>{item.display}</h6>
                         </div>
                     </Col>
                     

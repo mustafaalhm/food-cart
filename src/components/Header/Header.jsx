@@ -1,58 +1,86 @@
-import React,{useRef} from 'react';
+import React, { useEffect, useRef } from 'react';
 import '../../Styles/header.css'
 import { Container } from 'reactstrap';
 import logo from '../../assets/images/res-logo.png'
-import { NavLink ,Link } from 'react-router-dom';
+import { NavLink, Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import {cartUiActions} from '../../store/shopping-cart/cartUiSlice'
 
-const nav__links =[
+
+const nav__links = [
   {
-    display:'Home',
-    path:'/home'
+    display: 'Home',
+    path: '/home'
   },
   {
-    display:'Foods',
-    path:'/foods'
+    display: 'Foods',
+    path: '/foods'
   },
   {
-    display:'Cart',
-    path:'/cart'
+    display: 'Cart',
+    path: '/cart'
   },
   {
-    display:'Contact',
-    path:'/contact'
+    display: 'Contact',
+    path: '/contact'
   },
-  
+
 
 ]
 const Header = () => {
   const menuRef = useRef(null);
-  const toogleMenu = ()=> menuRef.current.classList.toggle('show__menu');
-  
-  return <header className="header">
+  const headerRef = useRef(null);
+  const totalQuantity = useSelector(state => state.cart.totalQuantity);
+  const dispatch = useDispatch();
+
+  const toogleMenu = () => menuRef.current.classList.toggle('show__menu');
+  const toggleCart = () => {
+    dispatch(cartUiActions.toggle())
+  }
+
+
+
+  useEffect(() => {
+    window.addEventListener('scroll', () => {
+      if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+        headerRef.current.classList.add('header__shrink')
+      } else {
+        headerRef.current.classList.remove('header__shrink')
+      }
+    })
+
+    return () => {
+      window.removeEventListener('scroll')
+    }
+  }, [])
+
+
+  return <header className="header" ref={headerRef}>
     <Container>
       <div className="nav__wrapper d-flex align-items-center justify-content-between">
-        <div className="logo">
-            <img src={logo} alt="" />
-            <h5>Tasty Treat</h5>
+        <div className="logo mt-1">
+          <img src={logo} alt="" />
+          <h5>Tasty Treat</h5>
         </div>
- 
+
         {/* ======menu ========  */}
         <div className="navigation  " ref={menuRef} onClick={toogleMenu}>
           <div className="menu d-flex align-items-center gap-5">
-            
+
             {
-              nav__links.map((item,index)=>(
-              
-                <NavLink  to={item.path} key={index} className={navClass => navClass.isActive ? 'active__menu' : ''}>{item.display}</NavLink>
+              nav__links.map((item, index) => (
+
+                <NavLink to={item.path} key={index} className={navClass => navClass.isActive ? 'active__menu' : ''}>{item.display}</NavLink>
               ))
             }
           </div>
         </div>
         {/* ======nav right icons =========== */}
         <div className="nav__right  d-flex align-items-center gap-3">
-          <span className="cart__icon">
+          <span className="cart__icon " onClick={toggleCart}>
             <i className='ri-shopping-basket-line'></i>
-            <span className="cart__badge">2</span>
+            <span className="cart__badge">{totalQuantity}</span>
           </span>
 
           {/* usere */}

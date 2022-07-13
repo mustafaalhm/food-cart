@@ -9,3 +9,131 @@
 .feature__text {
     color: #777;
 }
+
+.food__category {
+    background: #df2121;
+    text-align: center;
+    margin-top: 30px;
+    padding: 20px 0px;
+    border-radius: 8px;
+}
+
+.food__category button {
+    padding: 7px 20px;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: #fff;
+}
+
+.food__category button img {
+    height: 20px;
+    width: 20px;
+}
+
+.foodBtnActive {
+    color: #df2121 !important;
+    background: #fff !important;
+    border-radius: 5px;
+}
+
+.tasty-treat__title span {
+    color: #df2121;
+}
+
+.tasty-treat__desc {
+    color: #777;
+    line-height: 28px;
+}
+
+.choose-us__title {
+    font-weight: 600 !important;
+}
+
+.choose-us__title i {
+    color: #df2121;
+    font-weight: 500 !important;
+}
+
+.choose-us__desc {
+    color: #777;
+}
+
+.testimonial__subtitle {
+    color: #df2121;
+}
+
+.testimonial__title span {
+    font-weight: 600;
+    color: #df2121;
+}
+
+.testimonial__desc {
+    color: #777;
+    line-height: 30px;
+}
+
+@media only screen and (max-width:768px) {
+    .hero__content {
+        text-align: center;
+    }
+
+    .hero__content p {
+        font-size: 0.8rem;
+        line-height: 25px;
+    }
+
+    .hero__title {
+        font-size: 1.5rem;
+        line-height: 40px;
+
+    }
+
+    .hero__btns button {
+        padding: 5px 15px;
+        font-size: 0.7rem;
+    }
+
+    .hero__service p {
+        font-size: 0.7rem !important;
+    }
+
+    .feature__subtitle {
+        font-size: 1rem;
+    }
+
+    .feature__text {
+        font-size: 0.8rem;
+        margin-bottom: 0px;
+    }
+
+    .food__category {
+        padding: 20px;
+    }
+
+    .food__category button {
+        padding: 5px 15px;
+        font-size: 0.7rem;
+    }
+
+    .tasty-treat__desc,.choose-us__title {
+        font-size: 0.8rem;
+    }
+    
+}
+
+@media only screen and (max-width:576px) {
+
+    .hero__content {
+        text-align: center;
+    }
+
+    .hero__btns {
+        justify-content: center;
+    }
+
+    .hero__service {
+        justify-content: center;
+        
+    }
+}

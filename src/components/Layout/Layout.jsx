@@ -2,11 +2,26 @@ import React from 'react'
 import Header from '../Header/Header.jsx'
 import Footer from '../Footer/Footer.jsx'
 import Routes from '../../routes/Router'
+import Carts from '../Ui/cart/Carts.jsx'
+import {  useSelector } from 'react-redux'
+
 const Layout = () => {
+
+  const showCart = useSelector(state => state.cartUi.cartIsVisable)
   return (
     <div>
+     
         <Header/>
-            <Routes/>
+        {
+          showCart &&  <Carts/>
+        
+        }
+       
+        
+        <div>
+          <Routes/>
+        </div>
+            
         <Footer/>
     </div>
   )
